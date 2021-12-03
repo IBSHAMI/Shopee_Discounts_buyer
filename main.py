@@ -1,14 +1,20 @@
-# import beautifulsoup4
-import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from product_reader import ProductReader
 
-# use ProductReader to read the product page of random product from shopee
+
+# chrome driver path
+chrome_driver_path = r"C:\Users\user\PycharmProjects\Prof_Projects\chromedriver_win32\chromedriver.exe"
+service = Service(chrome_driver_path)
+driver = webdriver.Chrome(service=service)
 
 
-product_page = ProductReader(url="https://shopee.com.my/-Bundle-of-2-ATTACK-Liquid-Detergent-plus-Softener-(LATS)-3.6kg-i.466573414.10748996792")
+product_page = ProductReader(url="https://shopee.com.my/product/26912497/1881778163", driver=driver)
 soup = product_page.soup
 
-print(soup.text)
+print(soup)
+
+
 
 
 
