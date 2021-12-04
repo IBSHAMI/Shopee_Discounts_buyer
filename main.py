@@ -20,6 +20,9 @@ product_name, product_rating = product_page.get_products_info()
 print(product_name)
 print(product_rating)
 
+product_variations = product_page.get_product_varations()
+print(product_variations)
+
 
 
 
