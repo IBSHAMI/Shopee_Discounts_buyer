@@ -146,6 +146,7 @@ class MainWindow(Tk):
         password = self.password_entry.get()
         email = self.email_entry.get()
         confirm_password = self.confirm_password_entry.get()
+
         print(username)
         print(password)
         print(email)

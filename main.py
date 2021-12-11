@@ -3,9 +3,11 @@ from selenium.webdriver.chrome.service import Service
 from product_reader import ProductReader
 from tkinter import *
 from main_window import MainWindow
+from create_database import create_database
 
 
 if __name__ == "__main__":
+    create_database()
     main = MainWindow()
     main.mainloop()
 
