@@ -13,4 +13,8 @@ def create_database():
     c.execute('''CREATE TABLE IF NOT EXISTS purchases
                  (id INTEGER PRIMARY KEY AUTOINCREMENT, username_id text, product text, price text, date text)''')
 
+    # # delete all rowes in users table
+    # c.execute("DELETE FROM users")
+
     conn.commit()
+    conn.close()

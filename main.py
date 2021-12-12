@@ -7,6 +7,7 @@ from create_database import create_database
 
 
 if __name__ == "__main__":
+    # Create database
     create_database()
     main = MainWindow()
     main.mainloop()
