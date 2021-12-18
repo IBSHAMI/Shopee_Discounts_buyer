@@ -1,6 +1,8 @@
 from tkinter import *
 import hashlib
 import sqlite3
+from user_app_pages import UserApp
+
 
 global logged_in
 logged_in = False
@@ -214,13 +216,10 @@ class MainWindow(Tk):
         if login_feedback == "Logged in successfully":
             self.space.config(text=login_feedback, fg="#00adb5", font=("Colfax", 12, "bold"))
             self.space.grid(row=9, column=2, sticky="w", pady=10, padx=180)
+            self.open_user_app(username_verify)
         else:
             self.space.config(text=login_feedback, fg="#ff0000", font=("Colfax", 12, "bold"))
             self.space.grid(row=9, column=2, sticky="w", pady=10, padx=180)
-
-
-
-
 
 
 
@@ -247,5 +246,20 @@ class MainWindow(Tk):
             self.space2.config(fg="red")
             self.space2.config(text=registration_feedback, font=("Colfax", 12, "bold"))
             self.space2.grid(row=8, column=2, sticky="w", pady=5, padx=190)
+
+    def open_user_app(self, username):
+        self.page_label.config(text=f"Welcome {username} to the app", fg="#eeeeee", bg="#222831", width="300", height="2",
+                               font=("Colfax", 12, "bold"))
+        self.wm_geometry("600x500")
+        # hide the button frame
+        self.button_frame.pack_forget()
+        # hide the register frame if we came from it
+        try:
+            self.login_frame_frame.pack_forget()
+        except AttributeError:
+            # an error will occur if user open the registration page without not from the login page
+            pass
+        # open the user app
+        self.user_app = UserApp(self, username)
 
 
